@@ -1,20 +1,20 @@
 <?php
 
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//      return view('welcome');
-// })->name('home');
+Route::get('/', function () {
+     return view('welcome');
+})->name('home');
 
-// Route::get('test', function () {
-//      return view('about');
-// })->name('about_us');
+Route::get('test', function () {
+     return view('about');
+})->name('about_us');
 
-// Route::get('posts', function () {
-//      return view('post');
-// })->name('mypost');
+Route::get('posts', function () {
+     return view('post');
+})->name('mypost');
 
-// Route::redirect('abouts','test',301);
+Route::redirect('abouts','test',301);
 
 Route::prefix('page')->group(function(){
      Route::get('/about',function () {
@@ -29,4 +29,8 @@ Route::prefix('page')->group(function(){
           return "<h1>First Post Page</h1>";
        });
 
+});
+
+Route::fallback(function() {
+     return "<h1>Page not found.</h1>";
 });
